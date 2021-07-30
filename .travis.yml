@@ -9,15 +9,15 @@ script:
   - docker run -e CI=true abhijeetd10/react-test npm test
 
 after_success:
-  - docker build -t abhijeetd10/mutli-client -f ./client
-  - docker build -t abhijeetd10/mutli-server -f ./server
-  - docker build -t abhijeetd10/mutli-worker -f ./worker
-  - docker build -t abhijeetd10/mutli-nginx -f ./nginx
+  - docker build -t abhijeetd10/multi-client -f ./client
+  - docker build -t abhijeetd10/multi-server -f ./server
+  - docker build -t abhijeetd10/multi-worker -f ./worker
+  - docker build -t abhijeetd10/multi-nginx -f ./nginx
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push abhijeetd10/mutli-client
-  - docker push abhijeetd10/mutli-server
-  - docker push abhijeetd10/mutli-worker
-  - docker push abhijeetd10/mutli-nginx
+  - docker push abhijeetd10/multi-client
+  - docker push abhijeetd10/multi-server
+  - docker push abhijeetd10/multi-worker
+  - docker push abhijeetd10/multi-nginx
 
